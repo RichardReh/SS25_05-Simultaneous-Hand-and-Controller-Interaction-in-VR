@@ -8,6 +8,8 @@ public class GroundTile : MonoBehaviour
     private Renderer _renderer;
     private Material _material;
     private Color _originalColor;
+    private Cube cube;
+    public string matchingColor;
     void Start()
     {
         _renderer = GetComponent<Renderer>();
@@ -17,9 +19,17 @@ public class GroundTile : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log("A collider has made contact with the Collider");
+        if (other.gameObject.CompareTag("Cube"))
+        {
+            cube = other.gameObject.GetComponent<Cube>();
+            if (cube.colorName == matchingColor)
+            {
+                Debug.Log(other.gameObject.CompareTag("Cube"));
+                Debug.Log("A collider has made contact with the Collider");
+                _material.SetColor("_BaseColor", Color.white);    
+            }
+        }
        
-        _material.SetColor("_BaseColor", Color.yellowNice);
     }
 
     void OnCollisionExit(Collision other)
