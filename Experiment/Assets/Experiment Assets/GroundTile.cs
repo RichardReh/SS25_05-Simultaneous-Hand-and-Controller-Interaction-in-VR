@@ -34,7 +34,14 @@ public class GroundTile : MonoBehaviour
 
     void OnCollisionExit(Collision other)
     {
-        Debug.Log("A collider has ceased contact with the Collider");
-        _material.SetColor("_BaseColor", _originalColor);
+        if (other.gameObject.CompareTag("Cube"))
+        {
+            cube = other.gameObject.GetComponent<Cube>();
+            if (cube.colorName == matchingColor)
+            {
+                Debug.Log("A collider has ceased contact with the Collider");
+                _material.SetColor("_BaseColor", _originalColor);
+            }
+        }
     }
 }
