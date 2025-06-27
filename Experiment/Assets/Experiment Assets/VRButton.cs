@@ -6,16 +6,24 @@ public class VRButton : MonoBehaviour
 
     public void LoadHandControllScene()
     {
+        Debug.Log("EXP: loadingHandControllScene");
         // SceneManager.LoadScene();
     }
 
     public void LoadControllerScene()
     {
+        Debug.Log("EXP: loadingHandControllScene");
         // SceneManager.LoadScene();
     }
 
     public void LoadHybridScene()
     {
+        Debug.Log("EXP: loadingHandControllScene");
         // SceneManager.LoadScene();
+    }
+
+    public void onPressStartButton()
+    {
+        Debug.Log("EXP: pressedStartButton");
     }
 }

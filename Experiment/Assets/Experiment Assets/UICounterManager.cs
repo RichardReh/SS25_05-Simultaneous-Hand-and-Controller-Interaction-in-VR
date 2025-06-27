@@ -30,5 +30,7 @@ public class UICounterManager : MonoBehaviour
     private void UpdateText()
     {
         counterText.text = currentCount + " / " + totalCount;
+        Debug.Log("EXP: Count" + counterText.text);
     }
+
 }
