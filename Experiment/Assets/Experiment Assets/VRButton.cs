@@ -13,7 +13,7 @@ public class VRButton : MonoBehaviour
     public void LoadControllerScene()
     {
         Debug.Log("EXP: loadingHandControllScene");
-        // SceneManager.LoadScene();
+        SceneManager.LoadScene("Controller", LoadSceneMode.Single);
     }
 
     public void LoadHybridScene()
