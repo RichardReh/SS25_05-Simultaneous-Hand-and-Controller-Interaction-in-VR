@@ -19,7 +19,8 @@ public class PressurePlateRandomizer : MonoBehaviour
     private Material _material;
     private GameObject[] arrayofcubes;
     private ColorMapping[] colors;
-    
+
+
     void Start()
     {
         _renderer = GetComponent<Renderer>();
@@ -53,7 +54,7 @@ public class PressurePlateRandomizer : MonoBehaviour
         }
 
         int cubeCount = arrayofcubes.Length;
-        for (int i = 0; i <= cubeCount; i++)
+        for (int i = 0; i <= cubeCount-1; i++)
         {
             Cube cube = arrayofcubes[i].GetComponent<Cube>();
             cube.colorName = colors[randomizedArray[i]].colorString;
@@ -61,5 +62,41 @@ public class PressurePlateRandomizer : MonoBehaviour
             Renderer renderer = cube.GetComponent<Renderer>();
             renderer.material = colors[randomizedArray[i]].colorMaterial;
         }
+
+        //Zum Randomisieren der Positionen
+
+        GameObject plane = GameObject.Find("Plane");
+        Bounds bounds = plane.GetComponent<Renderer>().bounds;
+
+        float minX = bounds.min.x;
+        float maxX = bounds.max.x-0.5f;
+        float minZ = bounds.min.z;
+        float maxZ = bounds.max.z-0.5f;
+
+        List<Vector3> spawnPositions = new List<Vector3>();
+        float ySpawn = 0.5f;
+        int cubesNeeded = arrayofcubes.Length;
+        int tries = 0;
+
+        while (spawnPositions.Count < cubesNeeded && tries < 1000)
+        {
+            tries++;
+
+            float randX = UnityEngine.Random.Range(minX, maxX);
+            float randZ = UnityEngine.Random.Range(minZ, maxZ);
+            Vector3 pos = new Vector3(randX, ySpawn, randZ);
+
+            // Abstand zum Zentrum prüfen
+            if (Vector3.Distance(pos, bounds.center) > bounds.size.x / 4f)
+            {
+                spawnPositions.Add(pos);
+            }
+        }
+
+        for (int i = 0; i < cubesNeeded; i++)
+        {
+            arrayofcubes[i].transform.position = spawnPositions[i];
+        }
+
     }
 }

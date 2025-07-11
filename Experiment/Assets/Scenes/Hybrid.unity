@@ -5228,7 +5228,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 98ebdbfed0b4c644f820b685e1f291cf, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 09c4c684cbf13f447aa8f7f5ec0aed10, type: 2}
   m_BuildHeightMesh: 0
 --- !u!114 &152482871
 MonoBehaviour:
@@ -9574,7 +9574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe78097acbca08f4492678ffce5d02b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 330585546}
+  cameraTransform: {fileID: 903641085}
   offset: {x: 0, y: -0.2, z: 1.5}
 --- !u!114 &316673605
 MonoBehaviour:
@@ -15931,7 +15931,7 @@ Transform:
   m_GameObject: {fileID: 530376424}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.41, y: 1.143, z: 4.38}
+  m_LocalPosition: {x: 3.45, y: 1.06, z: -1.34}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20838,7 +20838,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 330, y: -220}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &709373647
