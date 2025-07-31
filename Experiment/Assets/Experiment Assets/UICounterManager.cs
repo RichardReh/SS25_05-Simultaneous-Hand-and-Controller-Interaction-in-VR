@@ -31,6 +31,7 @@ public class UICounterManager : MonoBehaviour
     {
         counterText.text = currentCount + " / " + totalCount;
         Debug.Log("EXP: Count" + counterText.text);
+        LogWriter.Instance.WriteToLog("UICounterManager: Punktestand - " + counterText.text);
     }
 
 }

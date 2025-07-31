@@ -22,6 +22,8 @@ public class SceneSequenceManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        // erste Szene laden
+        SceneSequenceManager.Instance.LoadNextScene();
     }
 
     private void CreateRandomOrder()
@@ -45,11 +47,13 @@ public class SceneSequenceManager : MonoBehaviour
             string nextScene = sceneOrder[currentIndex];
             currentIndex++;
             Debug.Log("WECHSLE SZENE !!!");
+            LogWriter.Instance.WriteToLog("SceneManager: Szenenwechsel - " + nextScene);
             SceneManager.LoadScene(nextScene);
         }
         else
         {
             Debug.Log("Alle Szenen wurden gespielt!");
+            LogWriter.Instance.WriteToLog("SceneManager: Alle Szenen wurden gespielt");
         }
     }
 }
