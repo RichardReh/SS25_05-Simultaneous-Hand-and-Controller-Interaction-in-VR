@@ -9,7 +9,7 @@ public class SceneSequenceManager : MonoBehaviour
     private List<string> sceneOrder;
     private int currentIndex = 0;
 
-    private void Awake()
+    private void Start()
     {
         // Singleton behalten, wenn Szene gewechselt wird
         if (Instance == null)
