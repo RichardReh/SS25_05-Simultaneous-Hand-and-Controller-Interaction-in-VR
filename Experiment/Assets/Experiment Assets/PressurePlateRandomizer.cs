@@ -68,10 +68,11 @@ public class PressurePlateRandomizer : MonoBehaviour
         GameObject plane = GameObject.Find("Plane");
         Bounds bounds = plane.GetComponent<Renderer>().bounds;
 
-        float minX = bounds.min.x;
-        float maxX = bounds.max.x - 0.5f;
-        float minZ = bounds.min.z;
-        float maxZ = bounds.max.z - 0.5f;
+        float margin = 2f; // Abstand vom Rand
+        float minX = bounds.min.x + margin;
+        float maxX = bounds.max.x - margin;
+        float minZ = bounds.min.z + margin;
+        float maxZ = bounds.max.z - margin;
         float ySpawn = 0.5f;
 
         List<Vector3> spawnPositions = new List<Vector3>();
