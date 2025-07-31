@@ -12,7 +12,7 @@ public class PodestButton : MonoBehaviour
             {
                 Debug.Log("PLANE IST NICHT NULL");
                 plane.GetComponent<PressurePlateRandomizer>()?.ResetAndRandomize();
-                //plane.GetComponent<DeinZweitesScript>()?.ResetAndRandomize();
+                plane.GetComponent<PressurePlateColorRandomizer>()?.RandomizeAll();
             }
         
     }

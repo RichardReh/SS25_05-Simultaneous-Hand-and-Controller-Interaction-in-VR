@@ -17,9 +17,12 @@ public class PressurePlateColorRandomizer : MonoBehaviour
 
     void Start()
     {
-        // Druckplatten finden
-        GameObject[] arrayOfPlates = GameObject.FindGameObjectsWithTag("PressurePlate");
+        InitializeColorMappings();
+        RandomizeAll();
+    }
 
+    private void InitializeColorMappings()
+    {
         string[] colorStrings = { "Yellow", "Violet", "Teal", "Red", "Pink", "Orange", "Green", "Blue", "Black" };
 
         // Farbenreferenzen vorbereiten
@@ -30,6 +33,12 @@ public class PressurePlateColorRandomizer : MonoBehaviour
             colors[i].colorMaterial = materials[i];
             colors[i].colorString = colorStrings[i];
         }
+    }
+    
+    public void RandomizeAll(){
+        
+    // Druckplatten finden
+        GameObject[] arrayOfPlates = GameObject.FindGameObjectsWithTag("PressurePlate");
 
         // Zufallsreihenfolge
         int[] randomizedArray = Enumerable.Range(0, 9).ToArray();
