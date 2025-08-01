@@ -5013,6 +5013,7 @@ GameObject:
   - component: {fileID: 152482870}
   - component: {fileID: 152482872}
   - component: {fileID: 152482871}
+  - component: {fileID: 152482873}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Plane
@@ -5185,6 +5186,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 2.220446e-16, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &152482873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152482865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1eb2ac7ee32214386b4bc2a02a257b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: e8aa049c99b912841bc65a524e9ba97c, type: 2}
+  - {fileID: 2100000, guid: 9d3439dbd64af8440b1df5c8f9c5b0c3, type: 2}
+  - {fileID: 2100000, guid: 1a8b69d95b53afb458038762c5ab1a2b, type: 2}
+  - {fileID: 2100000, guid: b60250c6ba46b254a838e4821b3ce436, type: 2}
+  - {fileID: 2100000, guid: bf10ed56e404eb54592f3c2b0210b2cd, type: 2}
+  - {fileID: 2100000, guid: b4bc94b9c475ccf4c93c4861f4537cc6, type: 2}
+  - {fileID: 2100000, guid: f05a71d5be505944f9beb56267a9195f, type: 2}
+  - {fileID: 2100000, guid: 3617429420c0d404ebe3e5692a67a091, type: 2}
+  - {fileID: 2100000, guid: 632aa0c89c4c2294c82d89b33a7c8a58, type: 2}
 --- !u!1 &153579339
 GameObject:
   m_ObjectHideFlags: 0
