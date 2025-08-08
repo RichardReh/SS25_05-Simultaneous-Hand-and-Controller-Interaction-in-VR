@@ -27,6 +27,11 @@ public class UICounterManager : MonoBehaviour
         UpdateText();
     }
 
+    public void Reset()
+    {
+        currentCount = 0;
+    }
+
     private void UpdateText()
     {
         counterText.text = currentCount + " / " + totalCount;

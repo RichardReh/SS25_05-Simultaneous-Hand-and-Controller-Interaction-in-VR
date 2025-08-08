@@ -13,6 +13,7 @@ public class PodestButton : MonoBehaviour
                 Debug.Log("PLANE IST NICHT NULL");
                 plane.GetComponent<PressurePlateRandomizer>()?.ResetAndRandomize();
                 plane.GetComponent<PressurePlateColorRandomizer>()?.RandomizeAll();
+                UICounterManager.Instance.Reset();
                 LogWriter.Instance.WriteToLog("PodestButton: Startbutton wurde gedruckt");
             }
         
