@@ -38201,6 +38201,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7516989854395125638, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
   m_PrefabInstance: {fileID: 1406103916}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1406103918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7516989854951799704, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+  m_PrefabInstance: {fileID: 1406103916}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1407605282
 GameObject:
   m_ObjectHideFlags: 0
@@ -46746,6 +46751,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8203f71e3180fc942857de2b454c82d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractionMaterial: {fileID: 2100000, guid: 3617429420c0d404ebe3e5692a67a091, type: 2}
+  InteractionGO: {fileID: 1406103918}
 --- !u!65 &1720683284
 BoxCollider:
   m_ObjectHideFlags: 0
