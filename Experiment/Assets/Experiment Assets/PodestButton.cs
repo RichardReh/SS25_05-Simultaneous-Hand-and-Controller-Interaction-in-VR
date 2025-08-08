@@ -22,9 +22,9 @@ public class PodestButton : MonoBehaviour
             // change material and give it a clicked position: 
             InteractionGO.GetComponent<MeshRenderer>().material = InteractionMaterial;
             UnityEngine.Vector3 pos = InteractionGO.transform.position;
-            pos.y = 0.07f;
+            pos.z = 0.07f;
             InteractionGO.transform.position = pos; 
-            
+
             LogWriter.Instance.WriteToLog("PodestButton: Startbutton wurde gedruckt");
         }
 
