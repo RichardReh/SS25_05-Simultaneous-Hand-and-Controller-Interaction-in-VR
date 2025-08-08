@@ -28,7 +28,7 @@ public class SceneSequenceManager : MonoBehaviour
 
     private void CreateRandomOrder()
     {
-        sceneOrder = new List<string> { "Hybrid", "Controller"};
+        sceneOrder = new List<string> { "Hybrid", "Controller", "Hand"};
 
         // Fisher-Yates Shuffle
         for (int i = 0; i < sceneOrder.Count; i++)
