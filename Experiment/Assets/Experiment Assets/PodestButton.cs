@@ -30,13 +30,18 @@ public class PodestButton : MonoBehaviour
                 plane.GetComponent<PressurePlateColorRandomizer>()?.RandomizeAll();
                 UICounterManager.Instance.Reset();
 
-                // change material and give it a clicked position: 
-                InteractionGO.GetComponent<MeshRenderer>().material = InteractionMaterial;
-                UnityEngine.Vector3 pos = InteractionGO.transform.position;
-                pos.y = 0.07f;
-                InteractionGO.transform.position = pos;
+                try
+                {
+                    // change material and give it a clicked position: 
+                    InteractionGO.GetComponent<MeshRenderer>().material = InteractionMaterial;
+                    UnityEngine.Vector3 pos = InteractionGO.transform.localPosition;
+                    pos.z = 0.04f;
+                    InteractionGO.transform.localPosition = pos;
 
-                LogWriter.Instance.WriteToLog("PodestButton: Startbutton wurde gedruckt");
+                    LogWriter.Instance.WriteToLog("PodestButton: Startbutton wurde gedruckt");
+                } catch {
+                    Debug.Log("Nichts passiert, FEHLER");
+                }
             }
         }
     }

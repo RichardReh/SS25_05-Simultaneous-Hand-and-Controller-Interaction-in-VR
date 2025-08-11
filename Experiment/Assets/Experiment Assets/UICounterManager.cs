@@ -30,6 +30,7 @@ public class UICounterManager : MonoBehaviour
     public void Reset()
     {
         currentCount = 0;
+        UpdateText();
     }
 
     private void UpdateText()

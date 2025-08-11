@@ -6,47 +6,72 @@ using UnityEngine.InputSystem;
 
 public class GroundTile : MonoBehaviour
 {
-
     private Renderer _renderer;
-    private Material _material;
     private Color _originalColor;
-    private Cube cube;
-    private GameObject[] arrayofcubes;
+
     public string matchingColor;
+
+    private static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
+
+    // Der aktuell korrekt passende Würfel, der auf dieser Platte liegt (oder null)
+    private GameObject _currentMatchingCube = null;
+
     void Start()
     {
         _renderer = GetComponent<Renderer>();
-        _material = _renderer.material;
-        _originalColor = _material.GetColor("_BaseColor");
+        CacheMaterial();
+    }
+
+    /// Nach Materialwechsel (durch Randomizer) aufrufen:
+    public void CacheMaterial()
+    {
+        var mat = _renderer.material;
+        _originalColor = mat.HasProperty(BaseColorId) ? mat.GetColor(BaseColorId) : mat.color;
+    }
+
+    /// Platte vollständig zurücksetzen (Kontaktstatus + Farbe)
+    public void ResetPlate()
+    {
+        _currentMatchingCube = null;
+        SetTileColor(_originalColor);
+    }
+
+    private void SetTileColor(Color c)
+    {
+        var mat = _renderer.material; // immer das aktuelle Material
+        if (mat.HasProperty(BaseColorId)) mat.SetColor(BaseColorId, c);
+        else mat.color = c;
     }
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Cube"))
+        if (!other.gameObject.CompareTag("Cube")) return;
+
+        var cube = other.gameObject.GetComponent<Cube>();
+        if (cube == null || cube.colorName != matchingColor) return;
+
+        // Übergang 0 -> 1: nur wenn noch kein passender Würfel auf der Platte liegt
+        if (_currentMatchingCube == null)
         {
-            cube = other.gameObject.GetComponent<Cube>();
-            if (cube.colorName == matchingColor)
-            {
-                Debug.Log(other.gameObject.CompareTag("Cube"));
-                Debug.Log("A collider has made contact with the Collider");
-                _material.SetColor("_BaseColor", Color.white);
-                UICounterManager.Instance.Increment();
-            }
+            _currentMatchingCube = other.gameObject;
+            SetTileColor(Color.white);
+            UICounterManager.Instance?.Increment();
         }
-       
     }
 
     void OnCollisionExit(Collision other)
     {
-        if (other.gameObject.CompareTag("Cube"))
+        if (!other.gameObject.CompareTag("Cube")) return;
+
+        var cube = other.gameObject.GetComponent<Cube>();
+        if (cube == null || cube.colorName != matchingColor) return;
+
+        // Übergang 1 -> 0: nur wenn genau dieser passende Würfel die Platte verlässt
+        if (_currentMatchingCube == other.gameObject)
         {
-            cube = other.gameObject.GetComponent<Cube>();
-            if (cube.colorName == matchingColor)
-            {
-                Debug.Log("A collider has ceased contact with the Collider");
-                _material.SetColor("_BaseColor", _originalColor);
-                UICounterManager.Instance.Decrement();  
-            }
+            _currentMatchingCube = null;
+            SetTileColor(_originalColor);
+            UICounterManager.Instance?.Decrement();
         }
     }
 }

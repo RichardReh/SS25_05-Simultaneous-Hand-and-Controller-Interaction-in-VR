@@ -53,6 +53,7 @@ public class PressurePlateColorRandomizer : MonoBehaviour
         // Farben auf die Druckplatten verteilen
         for (int i = 0; i < arrayOfPlates.Length; i++)
         {
+
             // Matching Color setzen
             GroundTile plateScript = arrayOfPlates[i].GetComponent<GroundTile>();
             plateScript.matchingColor = colors[randomizedArray[i]].colorString;
@@ -60,6 +61,10 @@ public class PressurePlateColorRandomizer : MonoBehaviour
             // Renderer-Material setzen
             Renderer renderer = arrayOfPlates[i].GetComponent<Renderer>();
             renderer.material = colors[randomizedArray[i]].colorMaterial;
+
+            // >>> wichtig nach Materialwechsel
+            plateScript.CacheMaterial();
+            plateScript.ResetPlate();
         }
     }
 }

@@ -25,6 +25,7 @@ public class PressurePlateRandomizer : MonoBehaviour
     public void ResetAndRandomize()
     {
         Debug.Log("PressurePlateRandomizer → Reset wird durchgeführt.");
+        InitializeColorMappings();
         RandomizeAll();
     }
 
