@@ -46,6 +46,7 @@ public class SceneSequenceManager : MonoBehaviour
         {
             string nextScene = sceneOrder[currentIndex];
             currentIndex++;
+            Debug.Log("Aktuelle Szene " + currentIndex);
             Debug.Log("WECHSLE SZENE !!!");
             LogWriter.Instance.WriteToLog("SceneManager: Szenenwechsel - " + nextScene);
             SceneManager.LoadScene(nextScene);

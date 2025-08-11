@@ -7,10 +7,8 @@ public class SimpleSceneChangeOnTouch : MonoBehaviour
     {
         Debug.Log("Etwas berührt den Button: " + other.name + " | Tag: " + other.tag);
 
-        
-        
-            Debug.Log("RICHTIGER HAND/CONTROLLER → Szene wechseln!");
-            SceneSequenceManager.Instance.LoadNextScene();
+        Debug.Log("RICHTIGER HAND/CONTROLLER → Szene wechseln!");
+        SceneSequenceManager.Instance.LoadNextScene();
         
     }
 }
