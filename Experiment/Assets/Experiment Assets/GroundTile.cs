@@ -16,7 +16,7 @@ public class GroundTile : MonoBehaviour
     // Der aktuell korrekt passende Würfel, der auf dieser Platte liegt (oder null)
     private GameObject _currentMatchingCube = null;
 
-    void Start()
+    void Awake()
     {
         _renderer = GetComponent<Renderer>();
         CacheMaterial();
