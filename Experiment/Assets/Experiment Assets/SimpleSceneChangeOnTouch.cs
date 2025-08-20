@@ -3,12 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class SimpleSceneChangeOnTouch : MonoBehaviour
 {
+    private bool hasBeenPressed = false;
+
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Etwas berührt den Button: " + other.name + " | Tag: " + other.tag);
+        if (hasBeenPressed) return;
 
-        Debug.Log("RICHTIGER HAND/CONTROLLER → Szene wechseln!");
+        hasBeenPressed = true;
+        Debug.Log("Szene wechseln durch Button!");
+
         SceneSequenceManager.Instance.LoadNextScene();
-        
+    }
+
+    private void OnEnable()
+    {
+        hasBeenPressed = false; // Rücksetzen nach Szenenwechsel
     }
 }
